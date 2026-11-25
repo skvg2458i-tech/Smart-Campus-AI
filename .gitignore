@@ -1,0 +1,28 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local runtime data - never commit webcam evidence, DB, receipts or logs
+data/
+evidence/*
+!evidence/.gitkeep
+receipts/*
+!receipts/.gitkeep
+logs/
+reports/
+
+# Models / training artefacts (large; downloaded or trained locally)
+models/*
+!models/.gitkeep
+*.pt
+*.onnx
+datasets/
+runs/
+
+# Local tool config
+.claude/settings.local.json
+.streamlit/secrets.toml
+.env

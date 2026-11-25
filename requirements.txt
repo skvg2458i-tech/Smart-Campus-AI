@@ -1,0 +1,17 @@
+# Smart Campus AI - Python 3.11
+# CPU build of PyTorch is installed by default on Windows; for an NVIDIA GPU see README.
+ultralytics>=8.3.0
+lap>=0.5.12            # linear assignment solver used by ByteTrack
+opencv-python>=4.9
+torch>=2.2
+torchvision>=0.17
+streamlit>=1.38
+pandas>=2.1
+plotly>=5.20
+reportlab>=4.1
+numpy>=1.26,<3
+pyyaml>=6.0
+pillow>=10.0
+pytest>=8.0
+imageio-ffmpeg>=0.5     # bundled ffmpeg -> browser-playable H.264 evidence clips
+pypdf>=4.0               # tests: read receipt text

@@ -1,0 +1,20 @@
+[server]
+headless = true
+address = "localhost"          # local only - never exposed to the network
+runOnSave = false
+# don't watch big / frequently-written folders (venv, DB, evidence, logs)
+folderWatchBlacklist = ["venv", "data", "evidence", "receipts", "logs", "models", "datasets", "runs", ".claude"]
+
+[runner]
+# A full gc.collect() after every live-view refresh stalls YOLO inference; disable it.
+postScriptGC = false
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+primaryColor = "#0E9F8E"
+backgroundColor = "#F6F8FB"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#101828"
+font = "sans serif"
