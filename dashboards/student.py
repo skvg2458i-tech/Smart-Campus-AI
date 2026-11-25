@@ -36,7 +36,11 @@ with st.sidebar:
 fines = svc.list_fines(me["id"])  # only this student's records are ever queried
 c = st.columns(4)
 theme.kpi(c[0], "Student", me["name"], me["usn"], True)
-theme.kpi(c[1], "Department", me["department"].split("&")[0].strip(), f"Semester {me['semester']}", True)
+# e.g. AIML, CSE, ECE; words already in capitals (AI, ML) are kept whole
+dept_short = "".join(w if w.isupper() else w[0] for w in me["department"].split() if w[0].isupper())
+if len(dept_short) < 2:
+    dept_short = me["department"]
+theme.kpi(c[1], "Department", dept_short, f"{me['department']} · Semester {me['semester']}", True)
 theme.kpi(c[2], "Demo fines", len(fines), f"₹{sum(f['amount'] for f in fines):,.0f} total", True)
 unpaid = [f for f in fines if f["status"] == "UNPAID"]
 theme.kpi(c[3], "Outstanding (demo)", f"₹{sum(f['amount'] for f in unpaid):,.0f}", f"{len(unpaid)} unpaid", True)
